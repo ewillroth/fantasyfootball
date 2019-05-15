@@ -26,6 +26,7 @@ let eight = [3,4,5,6,7,5,9,10,1,4,2,3,6,7]
 let nine = [2,3,4,5,6,7,8,4,10,1,10,2,3,5]
 let ten = [1,2,3,4,5,6,7,8,9,6,9,1,7,2]
 
+//converts an integer referencing a team number to the appropriatly formatted string
 let numberToText = (int) => {
 	switch (int) {
 		case 1: 
@@ -61,17 +62,18 @@ let numberToText = (int) => {
 	}
 }
 
+//maps through an array of matchups for a team and converts their opponent number to the appropriate string
 let scheduleToText = (arr) => {
 	return arr.map(item => numberToText(item))
 }
 
 //converts an array of matchups to an array of matchup pairs (ie add team the array refers to)
 let pairGenerator = (arr, string) => {
-	let stringDictionary = {one: '0001', two: '0002', three: '0003', four: '0004', five: '0005', six: '0006', seven: '0007', eight: '0008', nine: '0009', ten: '0010'}
-	return arr.map(item=>[stringDictionary[string], item])
+	let teamDictionary = {one: '0001', two: '0002', three: '0003', four: '0004', five: '0005', six: '0006', seven: '0007', eight: '0008', nine: '0009', ten: '0010'}
+	return arr.map(item=>[teamDictionary[string], item])
 }
 
-//takes a pair and adds it to the appropriate week
+//takes a pair and adds it to the appropriate weekly schedule
 let weekPopulator = (arrOfPairs) => {
 	for(let i=0;i<arrOfPairs.length;i++){
 		switch(i) {
@@ -123,6 +125,11 @@ let weekPopulator = (arrOfPairs) => {
 	}
 }
 
+/*
+executes the functions created above
+convering a group of arrays for each team's matchups
+to a group of arrays for each week's matchups
+*/
 weekPopulator(pairGenerator(scheduleToText(one), 'one'))
 weekPopulator(pairGenerator(scheduleToText(two), 'two'))
 weekPopulator(pairGenerator(scheduleToText(three), 'three'))
@@ -148,7 +155,7 @@ let duplicateFilter = (arr) => {
 	return noDuplicates
 }
 
-//adds the week number to the matchup
+//adds the week number to each matchup in the week
 let scheduleFormatter = (arr, string) => {
 	for(let i = 0; i<arr.length; i++){
 		switch(string){
