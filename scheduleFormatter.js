@@ -15,16 +15,16 @@ let week13 = []
 let week14 = []
 
 //each team's weekly opponent 
-let one = [10,6,2,7,2,4,3,5,8,9,3,10,5,4]
-let two = [9,10,1,3,1,3,4,6,5,7,8,9,4,10]
-let three = [8,9,10,2,4,2,1,7,6,5,1,8,9,6]
-let four = [7,8,9,10,3,1,2,9,7,8,5,6,2,1]
-let five = [6,7,8,9,10,8,6,1,2,3,4,7,1,9]
-let six = [5,1,7,8,9,10,5,2,3,10,7,4,8,3]
-let seven = [4,5,6,1,8,9,10,3,4,2,6,5,10,8]
-let eight = [3,4,5,6,7,5,9,10,1,4,2,3,6,7]
-let nine = [2,3,4,5,6,7,8,4,10,1,10,2,3,5]
-let ten = [1,2,3,4,5,6,7,8,9,6,9,1,7,2]
+let teamOne = [10,6,2,7,2,4,3,5,8,9,3,10,5,4]
+let teamTwo = [9,10,1,3,1,3,4,6,5,7,8,9,4,10]
+let teamThree = [8,9,10,2,4,2,1,7,6,5,1,8,9,6]
+let teamFour = [7,8,9,10,3,1,2,9,7,8,5,6,2,1]
+let teamFive = [6,7,8,9,10,8,6,1,2,3,4,7,1,9]
+let teamSix = [5,1,7,8,9,10,5,2,3,10,7,4,8,3]
+let teamSeven = [4,5,6,1,8,9,10,3,4,2,6,5,10,8]
+let teamEight = [3,4,5,6,7,5,9,10,1,4,2,3,6,7]
+let teamNine = [2,3,4,5,6,7,8,4,10,1,10,2,3,5]
+let teamTen = [1,2,3,4,5,6,7,8,9,6,9,1,7,2]
 
 //converts an integer referencing a team number to the appropriatly formatted string
 let numberToText = (int) => {
@@ -130,16 +130,16 @@ executes the functions created above
 convering a group of arrays for each team's matchups
 to a group of arrays for each week's matchups
 */
-weekPopulator(pairGenerator(scheduleToText(one), 'one'))
-weekPopulator(pairGenerator(scheduleToText(two), 'two'))
-weekPopulator(pairGenerator(scheduleToText(three), 'three'))
-weekPopulator(pairGenerator(scheduleToText(four), 'four'))
-weekPopulator(pairGenerator(scheduleToText(five), 'five'))
-weekPopulator(pairGenerator(scheduleToText(six), 'six'))
-weekPopulator(pairGenerator(scheduleToText(seven), 'seven'))
-weekPopulator(pairGenerator(scheduleToText(eight), 'eight'))
-weekPopulator(pairGenerator(scheduleToText(nine), 'nine'))
-weekPopulator(pairGenerator(scheduleToText(ten), 'ten'))
+weekPopulator(pairGenerator(scheduleToText(teamOne), 'one'))
+weekPopulator(pairGenerator(scheduleToText(teamTwo), 'two'))
+weekPopulator(pairGenerator(scheduleToText(teamThree), 'three'))
+weekPopulator(pairGenerator(scheduleToText(teamFour), 'four'))
+weekPopulator(pairGenerator(scheduleToText(teamFive), 'five'))
+weekPopulator(pairGenerator(scheduleToText(teamSix), 'six'))
+weekPopulator(pairGenerator(scheduleToText(teamSeven), 'seven'))
+weekPopulator(pairGenerator(scheduleToText(teamEight), 'eight'))
+weekPopulator(pairGenerator(scheduleToText(teamNine), 'nine'))
+weekPopulator(pairGenerator(scheduleToText(teamTen), 'ten'))
 
 //removes duplicate matchups from weeks
 let duplicateFilter = (arr) => {
@@ -300,6 +300,8 @@ let homeBalancer = arr => {
 	return arr
 }
 
+//**** fix this later to run until it is balanced automatically ****
+//balance home and away games until each team has the same amount 
 homeBalancer(schedule)
 homeBalancer(schedule)
 homeBalancer(schedule)
@@ -307,6 +309,7 @@ homeBalancer(schedule)
 homeBalancer(schedule)
 homeBalancer(schedule)
 homeBalancer(schedule)
+
 //verifies each team has the same number of home and away games
 console.log(homeCounter(schedule))
 //joins the schedule into the appropriate format to be pasted into the myFantasyLeague website
